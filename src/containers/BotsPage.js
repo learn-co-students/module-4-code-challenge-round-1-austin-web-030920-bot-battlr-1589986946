@@ -19,7 +19,7 @@ class BotsPage extends Component {
   }
 
   render() {
-    return <div><YourBotArmy /><BotCollection /></div>;
+    return <div><YourBotArmy /><BotCollection botList={this.state.allBots} /></div>;
   }
 }
 

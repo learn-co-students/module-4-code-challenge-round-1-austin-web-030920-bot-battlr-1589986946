@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BotCard from "../components/BotCard.js"
+import BotCard from "../components/BotCard.js";
 
 class BotCollection extends Component {
 

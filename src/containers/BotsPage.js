@@ -28,3 +28,10 @@ class BotsPage extends Component {
 }
 
 export default BotsPage;
+
+
+// what I need to work on:
+// 1. fetching with React, apparently
+// 2. rendering with React
+// 3. information flow in React
+// 4. UGH

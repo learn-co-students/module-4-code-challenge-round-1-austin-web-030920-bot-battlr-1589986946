@@ -13,7 +13,8 @@ class BotsPage extends Component {
   }
 
   manageArmy = (bot) => {
-    bot.enlisted === true ? this.enlistBot(bot.id) : this.dischargeBot(bot.id)
+    bot.enlisted === false ? this.enlistBot(bot.id) : this.dischargeBot(bot.id)
+    this.setState({bots: this.state.bots})
   };
 
   componentDidMount() {
@@ -24,7 +25,7 @@ class BotsPage extends Component {
     console.log(this.state);
     return (
       <div>
-        <YourBotArmy />
+        <YourBotArmy handleClick={this.manageArmy} army={this.state.bots.filter(b => b.enlisted)}/>
         <BotCollection handleClick={this.manageArmy} bots={this.state.bots} />
       </div>
     );

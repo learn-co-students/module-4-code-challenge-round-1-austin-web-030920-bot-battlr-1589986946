@@ -13,33 +13,41 @@ class BotsPage extends Component {
   }
 
   manageArmy = (bot) => {
-    bot.enlisted === false ? this.enlistBot(bot.id) : this.dischargeBot(bot.id)
-    this.setState({bots: this.state.bots})
+    bot.enlisted === false || bot.enlisted === undefined ? this.enlistBot(bot.id) : this.dischargeBot(bot.id);
+    this.setState({ bots: this.state.bots });
   };
 
   deleteBot = (bot) => {
     // send a fetch delete request to the back end
     fetch(`http://localhost:6001/bots/${bot.id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        "Content-Type": 'application/json'
-      }
-    })
-    let index = this.state.bots.indexOf(bot)
-    this.state.bots.splice(index, 1)
-    this.setState({bots: this.state.bots})
-  }
+        "Content-Type": "application/json",
+      },
+    });
+    let index = this.state.bots.indexOf(bot);
+    this.state.bots.splice(index, 1);
+    this.setState({ bots: this.state.bots });
+  };
 
   componentDidMount() {
     this.setBots();
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div>
-        <YourBotArmy handleDelete={this.deleteBot} handleClick={this.manageArmy} army={this.state.bots.filter(b => b.enlisted)}/>
-        <BotCollection handleDelete={this.deleteBot} handleClick={this.manageArmy} bots={this.state.bots} />
+        <YourBotArmy
+          handleDelete={this.deleteBot}
+          handleClick={this.manageArmy}
+          army={this.state.bots.filter((b) => b.enlisted)}
+        />
+        <BotCollection
+          handleDelete={this.deleteBot}
+          handleClick={this.manageArmy}
+          bots={this.state.bots}
+        />
       </div>
     );
   }
@@ -61,7 +69,6 @@ class BotsPage extends Component {
   dischargeBot = (botId) => {
     this.state.bots.find((bot) => bot.id === botId).enlisted = false;
   };
-
 }
 
 export default BotsPage;

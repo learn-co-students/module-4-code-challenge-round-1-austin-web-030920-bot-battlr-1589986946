@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BotCard from "../components/BotCard";
 import BotCollection from "./BotCollection";
+import YourBotArmy from "./YourBotArmy";
 
 class BotsPage extends Component {
   constructor() {
@@ -11,6 +12,10 @@ class BotsPage extends Component {
     };
   }
 
+  manageArmy = () => {
+    console.log('managing army')
+  }
+
   componentDidMount() {
     this.setBots();
   }
@@ -18,7 +23,8 @@ class BotsPage extends Component {
   render() {
     // console.log(this.state)
     return <div>
-      <BotCollection bots={this.state.bots}/>
+      <YourBotArmy />
+      <BotCollection handleClick={this.manageArmy} bots={this.state.bots}/>
     </div>;
   }
 

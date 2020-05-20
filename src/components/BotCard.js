@@ -52,9 +52,7 @@ const BotCard = (props) => {
               </button>
               <button
                 className="ui mini red button"
-                onClick={
-                  
-                }
+                onClick={() => props.deleteBot(props.bot.id)}
               >
                 X
               </button>

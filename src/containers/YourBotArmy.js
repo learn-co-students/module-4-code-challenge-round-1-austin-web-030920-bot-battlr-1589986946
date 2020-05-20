@@ -15,6 +15,7 @@ class YourBotArmy extends Component {
                 bot={bot}
                 key={bot.id}
                 recruitOrDismissBot={this.props.recruitOrDismissBot}
+                deleteBot={this.props.deleteBot}
               />
             ))}
           </div>

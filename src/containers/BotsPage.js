@@ -43,8 +43,20 @@ class BotsPage extends Component {
     console.log(this.state.recruitedBots);
   };
 
-  deleteBot = () => {
-    
+  deleteBot = (id) => {
+    const currentBots = this.state.bots
+
+    let byeBot = this.state.bots.find(bot => bot.id = id)
+
+    const index = currentBots.indexOf(byeBot);
+    if (index > -1) {
+      currentBots.splice(index, 1);
+    }
+
+    this.setState({
+      bots: currentBots,
+    });
+
   }
 
   render() {
@@ -54,11 +66,13 @@ class BotsPage extends Component {
           bots={this.state.recruitedBots}
           recruited={"Dismiss"}
           recruitOrDismissBot={this.recruitOrDismissBot}
+          deleteBot={this.deleteBot}
         />
         <BotCollection
           bots={this.state.bots}
           recruitOrDismissBot={this.recruitOrDismissBot}
           recruited={"Recruit"}
+          deleteBot={this.deleteBot}
         />
       </div>
     );

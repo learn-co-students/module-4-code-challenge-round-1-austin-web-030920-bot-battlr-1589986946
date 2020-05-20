@@ -12,29 +12,42 @@ class BotsPage extends Component {
     };
   }
 
-  manageArmy = () => {
-    console.log('managing army')
-  }
+  manageArmy = (bot) => {
+    bot.enlisted === true ? this.enlistBot(bot.id) : this.dischargeBot(bot.id)
+  };
 
   componentDidMount() {
     this.setBots();
   }
 
   render() {
-    // console.log(this.state)
-    return <div>
-      <YourBotArmy />
-      <BotCollection handleClick={this.manageArmy} bots={this.state.bots}/>
-    </div>;
+    console.log(this.state);
+    return (
+      <div>
+        <YourBotArmy />
+        <BotCollection handleClick={this.manageArmy} bots={this.state.bots} />
+      </div>
+    );
   }
 
   setBots = () => {
     fetch("http://localhost:6001/bots")
       .then((r) => r.json())
-      .then((j) => this.setState({
-        bots: j
-      }));
+      .then((j) =>
+        this.setState({
+          bots: j,
+        })
+      );
   };
+
+  enlistBot = (botId) => {
+    this.state.bots.find((bot) => bot.id === botId).enlisted = true;
+  };
+
+  dischargeBot = (botId) => {
+    this.state.bots.find((bot) => bot.id === botId).enlisted = false;
+  };
+
 }
 
 export default BotsPage;

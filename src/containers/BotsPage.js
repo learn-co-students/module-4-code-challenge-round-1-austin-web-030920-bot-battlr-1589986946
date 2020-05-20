@@ -46,7 +46,7 @@ class BotsPage extends Component {
   deleteBot = (id) => {
     const currentBots = this.state.bots
 
-    let byeBot = this.state.bots.find(bot => bot.id = id)
+    let byeBot = this.state.bots.find(bot => bot.id === id)
 
     const index = currentBots.indexOf(byeBot);
     if (index > -1) {
@@ -64,14 +64,14 @@ class BotsPage extends Component {
       <div>
         <YourBotArmy
           bots={this.state.recruitedBots}
-          recruited={"Dismiss"}
+          buttonText="Dismiss"
           recruitOrDismissBot={this.recruitOrDismissBot}
           deleteBot={this.deleteBot}
         />
         <BotCollection
           bots={this.state.bots}
           recruitOrDismissBot={this.recruitOrDismissBot}
-          recruited={"Recruit"}
+          buttonText="Recruit"
           deleteBot={this.deleteBot}
         />
       </div>

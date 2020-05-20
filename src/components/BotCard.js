@@ -10,9 +10,14 @@ const botTypeClasses = {
 };
 
 const recruitOrDismissBot = (props) => {
-  console.log(props)
+  console.log(props);
   props.recruitOrDismissBot(props.bot.id);
   // (props.recruited = true);
+};
+
+const deleteBot = (props) => {
+  props.deleteBot(props.bot.id);
+  props.recruitOrDismissBot(props.bot.id);
 };
 
 const BotCard = (props) => {
@@ -48,11 +53,11 @@ const BotCard = (props) => {
           <span>
             <div className="ui center aligned segment basic">
               <button onClick={() => recruitOrDismissBot(props)}>
-                {`${props.recruited}`}
+                {`${props.buttonText}`}
               </button>
               <button
                 className="ui mini red button"
-                onClick={() => props.deleteBot(props.bot.id)}
+                onClick={() => deleteBot(props)}
               >
                 X
               </button>

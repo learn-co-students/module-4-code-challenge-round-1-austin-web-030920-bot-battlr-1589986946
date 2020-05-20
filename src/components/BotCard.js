@@ -9,12 +9,17 @@ const botTypeClasses = {
   Captain: "icon star"
 };
 
+
+
 const BotCard = props => {
   return (
+    console.log(this),
     <div className="ui column">
       <div
         className="ui card"
         key={props.bot.id}
+        // 'cannot read property "id" of undefined'; i checked and "props" returns undefined. wtf is props then? 
+        // how do i use my fetch here to display the data? i'm so lost ;n;
         onClick={() => console.log("add code to connect event listener")}
       >
         <div className="image">

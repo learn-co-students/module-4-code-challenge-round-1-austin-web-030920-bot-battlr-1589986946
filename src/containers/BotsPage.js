@@ -20,9 +20,14 @@ class BotsPage extends Component {
       .then(json => this.setState({ allBots: json }))
   }
 
+  addBot = (e) => {
+    // console.log(e.target.parentElement.parentElement)
+    console.log(e.children)
+  }
+
 
   render() {
-    return <div><YourBotArmy /><BotCollection allBots={this.state.allBots} /></div>;
+    return <div><YourBotArmy /><BotCollection allBots={this.state.allBots} clickHandler={this.addBot} /></div>;
   }
 }
 

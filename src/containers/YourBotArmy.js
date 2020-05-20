@@ -6,7 +6,12 @@ class YourBotArmy extends Component {
     return (
       this.props.army &&
       this.props.army.map((bot) => (
-        <BotCard handleClick={this.props.handleClick} key={bot.id} bot={bot} />
+        <BotCard
+          handleDelete={this.props.handleDelete}
+          handleClick={this.props.handleClick}
+          key={bot.id}
+          bot={bot}
+        />
       ))
     );
   };

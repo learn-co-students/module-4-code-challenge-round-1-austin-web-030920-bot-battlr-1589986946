@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import BotCard from "../components/BotCard";
+import BotCollection from "./BotCollection";
 
 class BotsPage extends Component {
   constructor() {
@@ -14,8 +16,10 @@ class BotsPage extends Component {
   }
 
   render() {
-    console.log(this.state)
-    return <div>{/* put your components here */}</div>;
+    // console.log(this.state)
+    return <div>
+      <BotCollection bots={this.state.bots}/>
+    </div>;
   }
 
   setBots = () => {

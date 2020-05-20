@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 class YourBotArmy extends Component {
-  //your bot army code here...
-
   render() {
     return (
       <div className="ui segment inverted olive bot-army">

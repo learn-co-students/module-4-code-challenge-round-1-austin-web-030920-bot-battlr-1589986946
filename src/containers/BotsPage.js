@@ -22,7 +22,7 @@ class BotsPage extends Component {
 
   addBot = (e) => {
     // console.log(e.target.parentElement.parentElement)
-    console.log(e.children)
+    console.log(e)
   }
 
 

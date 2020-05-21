@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { deleteBotAction } from '../actions';
 
 const botTypeClasses = {
   Assault: 'icon military',
@@ -49,7 +51,7 @@ const BotCard = (props) => {
                 className="ui mini red button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  props.deleteBot(props.bot);
+                  props.dispatch(deleteBotAction(props.bot.id));
                 }}
               >
                 x
@@ -62,4 +64,4 @@ const BotCard = (props) => {
   );
 };
 
-export default BotCard;
+export default connect((store) => store)(BotCard);

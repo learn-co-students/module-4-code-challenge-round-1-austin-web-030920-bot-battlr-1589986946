@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import BotCard from '../components/BotCard';
+import { connect } from 'react-redux';
+import { enlistBotAction } from '../actions';
 
 class BotCollection extends Component {
-  //your code here
-
   render() {
     return (
       <div className="ui four column grid">
@@ -12,8 +12,7 @@ class BotCollection extends Component {
             <BotCard
               key={bot.id}
               bot={bot}
-              handleClick={this.props.enlistBot}
-              deleteBot={this.props.deleteBot}
+              handleClick={() => this.props.dispatch(enlistBotAction(bot.id))}
             ></BotCard>
           ))}
         </div>
@@ -22,4 +21,4 @@ class BotCollection extends Component {
   }
 }
 
-export default BotCollection;
+export default connect((state) => state)(BotCollection);
